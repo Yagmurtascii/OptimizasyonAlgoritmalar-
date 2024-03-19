@@ -15,7 +15,6 @@ namespace OptimizasyonAlgoritmaları
             {
                 d.SubstituteValues(x1, x2, x3); // kismi türeve göre x1 ve x2 değerleri alındı
                 double genlik = d.CalculateGenlik(d.substitutedX, d.substitutedY,d.substitutedz);
-                t++;
                 if (genlik <= epsilon)
                 {
                     isTrue = false;
@@ -27,6 +26,7 @@ namespace OptimizasyonAlgoritmaları
                 x1 =d. x1NewSol;
                 x2 =d. x2NewSol;
                 x3 =d. x3NewSol;
+                t++;
 
             }
 
@@ -44,7 +44,6 @@ namespace OptimizasyonAlgoritmaları
             }
             else
             {
-
                 d.dValuesCalculate(d.substitutedX, d.substitutedY, d.substitutedz);
                 d.newXValuesCalculate(x1, x2, x3, adim, d.dx, d.dy, d.dz);
                 x1 = d.x1NewSol;
@@ -52,7 +51,6 @@ namespace OptimizasyonAlgoritmaları
                 x3 = d.x3NewSol;
                 while (genlik > epsilon)
                 {
-                  
                     d.SubstituteValues(x1, x2, x3); // kismi türeve göre x1 ve x2 değerleri alındı
                     double genlik1 = d.CalculateGenlik(d.substitutedX, d.substitutedY, d.substitutedz);
                     if (genlik1 <= epsilon)
@@ -63,12 +61,10 @@ namespace OptimizasyonAlgoritmaları
                     }
                     double beta = Math.Pow((genlik1 / genlik), 2);
                     genlik = genlik1;
-                    double newDx = -d.substitutedX + beta * d.dx;
-                    double newDy = -d.substitutedY + beta * d.dy;
-                    double newDz = -d.substitutedz + beta * d.dz;
-                    d.dx = newDx;
-                    d.dy = newDy;
-                    d.dz = newDz;
+                    d.dx = -d.substitutedX + beta * d.dx;
+                    d.dy = -d.substitutedY + beta * d.dy;
+                    d.dz = -d.substitutedz + beta * d.dz;
+              
                     d.newXValuesCalculate(x1, x2, x3, adim, d.dx, d.dy, d.dz);
 
                     x1 = d.x1NewSol;
