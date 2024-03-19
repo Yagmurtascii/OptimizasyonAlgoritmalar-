@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OptimizasyonAlgoritmaları
@@ -26,7 +22,6 @@ namespace OptimizasyonAlgoritmaları
                     MessageBox.Show($"t değeri {t}");
                     break;
                 }
-
                 d.dValuesCalculate(d.substitutedX, d.substitutedY, d.substitutedz);
                 d.newXValuesCalculate(x1, x2, x3, adim, d.dx, d.dy,d. dz);
                 x1 =d. x1NewSol;
@@ -57,7 +52,7 @@ namespace OptimizasyonAlgoritmaları
                 x3 = d.x3NewSol;
                 while (genlik > epsilon)
                 {
-                    t++;
+                  
                     d.SubstituteValues(x1, x2, x3); // kismi türeve göre x1 ve x2 değerleri alındı
                     double genlik1 = d.CalculateGenlik(d.substitutedX, d.substitutedY, d.substitutedz);
                     if (genlik1 <= epsilon)
@@ -79,10 +74,10 @@ namespace OptimizasyonAlgoritmaları
                     x1 = d.x1NewSol;
                     x2 = d.x2NewSol;
                     x3 = d.x3NewSol;
+                    t++;
                 }
             }
         }
 
     }
-
 }
