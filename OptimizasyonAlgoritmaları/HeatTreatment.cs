@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace OptimizasyonAlgoritmaları
 {
-    public class İsilIslem
+    public class HeatTreatment
     {
 
         public SymbolicExpression x { get; private set; }
@@ -17,13 +17,13 @@ namespace OptimizasyonAlgoritmaları
         public double fBaslangic { get; set; }
         public double fKomsu { get; set; }
 
-
         // x başlangıç değeri upper xbu
         public void Calculate(string function, double x1bl, double x1bu, double x2bl, double x2bu, double T, double alfa, int iterasyon)
         {
+            //bu yapı sadece bir defa oluşturulur ve herden bu çağrılır.
             Random rnd = new Random();
             SymbolicExpression func = SymbolicExpression.Parse(function);
-
+      
             //başlangıç değerlerine göre ara değerler çekilmesi gerek
             double x1Constant = rnd.NextDouble() * (x1bu - x1bl) + x1bl;
             double x2Constant = rnd.NextDouble() * (x2bu - x2bl) + x2bl;
@@ -36,7 +36,7 @@ namespace OptimizasyonAlgoritmaları
             fBaslangic = func.Evaluate(new Dictionary<string, FloatingPoint> { ["x"] = x1Constant, ["y"] = x2Constant }).RealValue;
             while (iterasyon > 0)
             {
-                //low ve uppr % 5 i hesaplanır ona göre random bulunur ve mevcut x1 değerine eklenir.
+                //low ve upper % 5 i hesaplanır ona göre random bulunur ve mevcut x1 değerine eklenir.
                 double x1Value = rnd.NextDouble() * (x1bu*0.05 - x1bl*0.05) + x1bl * 0.05;
                 double x2Value = rnd.NextDouble() * (x2bu * 0.05 - x2bl * 0.05) + x2bl;
                 Console.WriteLine("x1Value {0}", x1Value);
@@ -46,7 +46,7 @@ namespace OptimizasyonAlgoritmaları
                 fKomsu = func.Evaluate(new Dictionary<string, FloatingPoint> { ["x"] = x1KomsuValue, ["y"] = x2KomsuValue }).RealValue;
                 double delta = fBaslangic - fKomsu;
 
-                if (delta < 0 || Math.Pow(Math.E, (-delta/T))>teta)
+                if (delta <= 0 || Math.Pow(Math.E, (-delta/T))>teta)
                 {
                     x1Constant = x1KomsuValue;
                     x2Constant = x2KomsuValue;
@@ -61,10 +61,6 @@ namespace OptimizasyonAlgoritmaları
             MessageBox.Show($"x1 değeri : {x1Constant}" +
                 $"\nx2 değeri : {x2Constant} " +
                 $"\nSon sıcaklık değeri: {T}", "İterasyon sonucu" , MessageBoxButtons.OK, MessageBoxIcon.Information);
-      
-
-
-
         }
     }
 }

@@ -21,7 +21,7 @@ namespace OptimizasyonAlgoritmaları
         //low ve uppr %5 i hesaplanır ona göre random bulunur ve mevcut x1 değerine eklenir.
         private void button1_Click(object sender, EventArgs e)
         {
-            İsilIslem islem = new İsilIslem();
+            HeatTreatment islem = new HeatTreatment();
             double x1l, x1u, x2l, x2u, t, alfa;
             int iterasyon;
 

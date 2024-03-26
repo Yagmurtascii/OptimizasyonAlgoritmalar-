@@ -8,27 +8,36 @@ namespace OptimizasyonAlgoritmaları
         Derivate d = Derivate.GetInstance();
         public void enDikInis(string function, double x1, double x2, double x3, double adim, double epsilon)
         {
-            int t = 0; //iterasyon aldım
-            d.Calculate(function); //kismi türev aldım
-            bool isTrue = true;
-            while (isTrue)
+            if(function == null || x1==null || x2==null || x3 == null || adim == null
+                || epsilon == null)
             {
-                d.SubstituteValues(x1, x2, x3); // kismi türeve göre x1 ve x2 değerleri alındı
-                double genlik = d.CalculateGenlik(d.substitutedX, d.substitutedY,d.substitutedz);
-                if (genlik <= epsilon)
-                {
-                    isTrue = false;
-                    MessageBox.Show($"t değeri {t}");
-                    break;
-                }
-                d.dValuesCalculate(d.substitutedX, d.substitutedY, d.substitutedz);
-                d.newXValuesCalculate(x1, x2, x3, adim, d.dx, d.dy,d. dz);
-                x1 =d. x1NewSol;
-                x2 =d. x2NewSol;
-                x3 =d. x3NewSol;
-                t++;
-
+                MessageBox.Show("Boş alan bırakmayın.");
             }
+            else
+            {
+                int t = 0; //iterasyon aldım
+                d.Calculate(function); //kismi türev aldım
+                bool isTrue = true;
+                while (isTrue)
+                {
+                    d.SubstituteValues(x1, x2, x3); // kismi türeve göre x1 ve x2 değerleri alındı
+                    double genlik = d.CalculateGenlik(d.substitutedX, d.substitutedY, d.substitutedz);
+                    if (genlik <= epsilon)
+                    {
+                        isTrue = false;
+                        MessageBox.Show($"t değeri {t}");
+                        break;
+                    }
+                    d.dValuesCalculate(d.substitutedX, d.substitutedY, d.substitutedz);
+                    d.newXValuesCalculate(x1, x2, x3, adim, d.dx, d.dy, d.dz);
+                    x1 = d.x1NewSol;
+                    x2 = d.x2NewSol;
+                    x3 = d.x3NewSol;
+                    t++;
+
+                }
+            }
+            
 
         }
 

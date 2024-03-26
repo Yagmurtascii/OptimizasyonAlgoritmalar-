@@ -17,8 +17,6 @@ namespace OptimizasyonAlgoritmaları
                 instance = new Derivate();
             return instance;
         }
-
-
         public SymbolicExpression PartialDerivativeX { get; private set; }
         public SymbolicExpression PartialDerivativeY { get; private set; }
         public SymbolicExpression PartialDerivativeZ { get; private set; }
@@ -42,7 +40,6 @@ namespace OptimizasyonAlgoritmaları
             PartialDerivativeY = func.Differentiate("y");
             PartialDerivativeZ = func.Differentiate("z");
         }
-
 
         public void SubstituteValues(double xValue, double yValue, double zValue) 
         {

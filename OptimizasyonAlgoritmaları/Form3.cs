@@ -19,6 +19,8 @@ namespace OptimizasyonAlgoritmaları
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Deneme deneme = new Deneme();
+            deneme.Calculate("x^2 + 2*y^2+ 2*z^2 +2*x*y+2*y*z+a^3+b");
             var form = new Form1();
             form.Show();
         }

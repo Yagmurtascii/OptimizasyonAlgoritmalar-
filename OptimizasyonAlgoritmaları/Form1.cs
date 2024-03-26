@@ -16,17 +16,24 @@ namespace OptimizasyonAlgoritmaları
         {
 
             Algorithms alg = new Algorithms();
-            double xValue = (double.Parse(x1.Text));
-            double yValue = (double.Parse(x2.Text));
-            double zValue = (double.Parse(x3.Text));
-            double a = (double.Parse(adim.Text));
-            double ep = (double.Parse(epsilon.Text));
-            if (comboBox1.SelectedItem.ToString() == "En Dik İniş Algoritması")
+            if(x1.Text!="" || x2.Text != "" || x3.Text != "" || adim.Text != "" || epsilon.Text != "")
             {
-                alg.enDikInis(function.Text, xValue, yValue, zValue, a, ep);
+                double xValue = (double.Parse(x1.Text));
+                double yValue = (double.Parse(x2.Text));
+                double zValue = (double.Parse(x3.Text));
+                double a = (double.Parse(adim.Text));
+                double ep = (double.Parse(epsilon.Text));
+                if (comboBox1.SelectedItem.ToString() == "En Dik İniş Algoritması")
+                {
+                    alg.enDikInis(function.Text, xValue, yValue, zValue, a, ep);
+                }
+                else
+                    alg.eneslenikGradyent(function.Text, xValue, yValue, zValue, a, ep);
             }
-            else
-                alg.eneslenikGradyent(function.Text,xValue,yValue,zValue,a,ep);
+  
+         
+               
+            
 
         }
 

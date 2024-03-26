@@ -36,9 +36,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Peru;
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(68, 116);
+            this.button1.Location = new System.Drawing.Point(54, 121);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(281, 285);
             this.button1.TabIndex = 0;
@@ -48,9 +48,9 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.Peru;
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(355, 116);
+            this.button2.Location = new System.Drawing.Point(341, 121);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(281, 285);
             this.button2.TabIndex = 1;
@@ -64,7 +64,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(62, 62);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(440, 31);
+            this.label1.Size = new System.Drawing.Size(552, 39);
             this.label1.TabIndex = 2;
             this.label1.Text = "OPTİMİZASYON UYGULAMALARI";
             // 
@@ -72,11 +72,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(690, 457);
+            this.ClientSize = new System.Drawing.Size(675, 453);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OPTİMİZASYON ALGORİTMALARI";
